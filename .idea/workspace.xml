@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="882fbc46-9f6c-4441-bfd0-1a11c3a4a580" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YephkJFuIO1noEK2bJWNGZ6VT8" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Redux" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Profile" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Nav" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Header" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.test.js">
+    <configuration name="MyPosts.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" working-dir="$PROJECT_DIR$/src/Components/Profile/MyPosts">
+      <method v="2" />
+    </configuration>
+    <configuration name="mai.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Libraries/mai.js" working-dir="$PROJECT_DIR$/Libraries">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/test.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.test.js" />
+        <item itemvalue="Node.js.MyPosts.jsx" />
+        <item itemvalue="Node.js.mai.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="882fbc46-9f6c-4441-bfd0-1a11c3a4a580" name="Default Changelist" comment="" />
+      <created>1583313035857</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583313035857</updated>
+      <workItem from="1583313037936" duration="16265000" />
+      <workItem from="1583380070105" duration="12276000" />
+      <workItem from="1583477011694" duration="18745000" />
+      <workItem from="1583507440114" duration="637000" />
+      <workItem from="1583568618252" duration="3902000" />
+      <workItem from="1583583081933" duration="10740000" />
+      <workItem from="1583692481579" duration="4749000" />
+      <workItem from="1583697343027" duration="90000" />
+      <workItem from="1583766356288" duration="12684000" />
+      <workItem from="1583823462824" duration="16573000" />
+      <workItem from="1583846624041" duration="3048000" />
+      <workItem from="1583861779485" duration="7343000" />
+      <workItem from="1583908864779" duration="23967000" />
+      <workItem from="1583995866779" duration="19266000" />
+      <workItem from="1584031748096" duration="3359000" />
+      <workItem from="1584082237976" duration="6836000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

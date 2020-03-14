@@ -1,0 +1,7 @@
+.description {
+    padding: 10px;
+}
+.item img {
+    max-height: 500px;
+    width: max-content;
+}
