@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="882fbc46-9f6c-4441-bfd0-1a11c3a4a580" name="Default Changelist" comment="" />
+    <list default="true" id="882fbc46-9f6c-4441-bfd0-1a11c3a4a580" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Redux/redux-store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/sidebar-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/sidebar-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="react-kam-1" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -17,7 +36,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1YephkJFuIO1noEK2bJWNGZ6VT8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -30,16 +55,16 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Profile\MyPosts" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Profile" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Nav" />
-      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Header" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
-      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -98,10 +123,25 @@
       <workItem from="1583995866779" duration="19266000" />
       <workItem from="1584031748096" duration="3359000" />
       <workItem from="1584082237976" duration="6836000" />
+      <workItem from="1584204948293" duration="1309000" />
+      <workItem from="1584274945881" duration="17889000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

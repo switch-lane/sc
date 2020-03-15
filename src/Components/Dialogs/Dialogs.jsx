@@ -15,10 +15,11 @@ const Dialogs = (props) => {
     ////
     let newMessElement = React.createRef();
 
-    let AddMess = () => {
+    let onAddMess = () => {
         // let text = newPostElement.current.value;
-        props.dispatch(addMessageActionCreator());
+        // props.dispatch(addMessageActionCreator());
         // props.addPost()
+        props.AddMess()
         // props.updateNewPostText('')
     };
 
@@ -26,13 +27,12 @@ const Dialogs = (props) => {
     let onMessChange = () => {
 
         let text = newMessElement.current.value;
-        props.dispatch(onMessageChangeActionCreator(text))
+        // props.dispatch(onMessageChangeActionCreator(text))
+        props.onMessChange(text)
 
         // props.updateNewPostText(text)
     };
 
-
-////
 
     return (
 
@@ -52,7 +52,7 @@ const Dialogs = (props) => {
                         <textarea onChange={onMessChange} ref={newMessElement} value={props.MessagesPage.newMessageText}/>
                     </div>
                     <div>
-                        <button onClick={AddMess}>Add Message</button>
+                        <button onClick={onAddMess}>Add Message</button>
                     </div>
                 </div>
 
@@ -60,8 +60,6 @@ const Dialogs = (props) => {
 
         </div>
     );
-
-
 };
 
 
