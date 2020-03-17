@@ -8,7 +8,7 @@ import {onMessageChangeActionCreator, addMessageActionCreator } from "../Redux/m
 ///
 
 const Dialogs = (props) => {
-
+    /// key={key.id} ???
     let DialogObj = props.MessagesPage.DialogsData.map((key) => <DialogItem name={key.name} id={key.id}/>);
     let MesObj = props.MessagesPage.MessagesData.map((key) => <Message text={key.text}/>);
 

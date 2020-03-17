@@ -5,6 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import Post from "./MyPosts/Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import SuperMyPostsContainer from "./MyPosts/MyPostsContainer"
 
 
 
@@ -13,9 +14,10 @@ const Profile = (props) => {
         <div>
             Main content
             <ProfileInfo/>
+            {/*<MyPostsContainer store={props.store}/>*/}
+            {/*<MyPostsContainer/>*/}
+            <SuperMyPostsContainer/>
 
-            {/*<MyPosts PostsData={props.ProfilePage.PostsData} dispatch={props.dispatch} newPostText={props.ProfilePage.newPostText}/>*/}
-            <MyPostsContainer store={props.store}/>
 
         </div>
     )

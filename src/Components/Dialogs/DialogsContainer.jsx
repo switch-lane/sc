@@ -1,25 +1,52 @@
 import React from "react";
 import {onMessageChangeActionCreator, addMessageActionCreator } from "../Redux/message-reducer"
 import Dialogs from "./Dialogs";
+import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
+// const DialogsContainer = () => {
+//
+//     return <StoreContext.Consumer>
+//         {(store) => {
+//
+//             let AddMessCont = () => {
+//                 store.dispatch(addMessageActionCreator());
+//             };
+//
+//
+//             let onMessChangeCont = (text) => {
+//                 let action = onMessageChangeActionCreator(text);
+//                 store.dispatch(action)
+//             };
+//
+//             return <Dialogs AddMess={AddMessCont}
+//                             onMessChange={onMessChangeCont}
+//                             MessagesPage={store.getState().MessagesPage}/>
+//
+//         }
+//         }
+//     </StoreContext.Consumer>
+//
+// };
 
-const DialogsContainer = (props) => {
-
-    let AddMessCont = () => {
-        props.store.dispatch(addMessageActionCreator());
-    };
-
-
-    let onMessChangeCont = (text) => {
-        let action = onMessageChangeActionCreator(text);
-        props.store.dispatch(action)
-    };
-
-
-    return (<Dialogs AddMess={AddMessCont}
-                     onMessChange={onMessChangeCont}
-                     // DialogsData={props.store.getState().MessagesPage.DialogsData}
-                     MessagesPage={props.store.getState().MessagesPage}/>)
+const mapStateToProps = (state) => {
+    return {
+        MessagesPage: state.MessagesPage,
+    }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        AddMess: () => {
+            dispatch(addMessageActionCreator())
+        },
+        onMessChange: (text) => {
+            dispatch(onMessageChangeActionCreator(text))
+        }
+    }
 };
 
-export default DialogsContainer
+const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+
+
+export default SuperDialogsContainer
+// export default DialogsContainer

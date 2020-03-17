@@ -8,24 +8,32 @@ import {BrowserRouter} from "react-router-dom";
 import {addPost} from "./Components/Redux/store";
 import store from "./Components/Redux/redux-store";
 import './index.css';
-
 import {updateNewPostText} from "./Components/Redux/store";
+// import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
-let renderEntireTree = (state) => {
-    ReactDOM.render(
-        <BrowserRouter>
-            {/*<App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/>*/}
-            <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
-        </BrowserRouter>, document.getElementById('root'));
 
-};
+ReactDOM.render(
+    <BrowserRouter>
+        {/*<App state={state} dispatch={store.dispatch.bind(store)} store={store}/>*/}
+        {/*<StoreContext.Provider value={store}>*/}
+        {/*    <App/>*/}
+        {/*</StoreContext.Provider>*/}
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </BrowserRouter>, document.getElementById('root'));
+
 
 // store.subscribe(renderEntireTree);
-store.subscribe(() => {
-    let state = store.getState();
-    renderEntireTree(state)
-});
-renderEntireTree(state.getState());
+
+
+
+// store.subscribe(() => {
+//     let state = store.getState();
+//     renderEntireTree(state)
+// });
+// renderEntireTree(state.getState());
 
 
 

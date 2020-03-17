@@ -18,23 +18,49 @@ let initialState = {
         {id: 6, name: 'Katya'}
     ]
 };
-
+//// В message-reducer сделано через switch!
 const messageReducer = (state = initialState, action) => {
+    let stateCopy;
     if (action.type === SEND_MESSAGE) {
         let newMessage = {
             id: 4,
             text: state.newMessageText
         };
-        state.MessagesData.push(newMessage);
-        state.newMessageText = '';
+        return  {...state,
+            newMessageText: '',
+            MessagesData: [...state.MessagesData, newMessage]};
+        // stateCopy.MessagesData = [...state.MessagesData];
+        // stateCopy.MessagesData.push(newMessage);
+        // stateCopy.newMessageText = '';
+        // return stateCopy
 
 
     } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        state.newMessageText = action.newMText;
+        return {...state, newMessageText: action.newMText};
+        // stateCopy.newMessageText = action.newMText;
+        // return stateCopy
 
-    }
-    return state
+    } else return state
 };
+
+
+// const messageReducer = (state = initialState, action) => {
+//     if (action.type === SEND_MESSAGE) {
+//         let newMessage = {
+//             id: 4,
+//             text: state.newMessageText
+//         };
+//
+//         state.MessagesData.push(newMessage);
+//         state.newMessageText = '';
+//
+//
+//     } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+//         state.newMessageText = action.newMText;
+//
+//     }
+//     return state
+// };
 
 export const addMessageActionCreator = () => ({type: SEND_MESSAGE});
 

@@ -165,3 +165,24 @@
 // }
 // console.log(addPost.text)
     // console.log(this._state.ProfilePage.newPostText === addPost._state.ProfilePage.newPostText)
+
+
+
+// let obj = {name:'KAwd', age:12, stat:{firs:1, second:2}}
+// console.log(obj)
+// let obj2 = obj
+//
+//
+// obj2.stat.firs = 3
+// console.log(obj)
+// console.log(obj2)
+
+
+//
+//
+// function one() {
+//     return  function two() {
+//         console.log('hello!!')
+//     }
+// }
+// one()()
