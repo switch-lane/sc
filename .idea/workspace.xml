@@ -2,18 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="882fbc46-9f6c-4441-bfd0-1a11c3a4a580" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/StoreContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Profile/ProfieContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Redux/user-reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Users/Users.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Users/Users.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/user-icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Nav/Nav.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/redux-store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.js" afterDir="false" />
     </list>
@@ -30,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -50,20 +57,20 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
-      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Profile\MyPosts" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Profile" />
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Nav" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Redux" />
+      <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -125,7 +132,16 @@
       <workItem from="1584204948293" duration="1309000" />
       <workItem from="1584274945881" duration="17889000" />
       <workItem from="1584341882487" duration="16920000" />
-      <workItem from="1584430212679" duration="15977000" />
+      <workItem from="1584430212679" duration="16654000" />
+      <workItem from="1584459755484" duration="6443000" />
+      <workItem from="1584602683813" duration="12672000" />
+      <workItem from="1584642370795" duration="4202000" />
+      <workItem from="1584690695099" duration="9676000" />
+      <workItem from="1584711625264" duration="4527000" />
+      <workItem from="1584733306430" duration="5487000" />
+      <workItem from="1584776321204" duration="15235000" />
+      <workItem from="1584808560892" duration="12085000" />
+      <workItem from="1584863884778" duration="13641000" />
     </task>
     <servers />
   </component>

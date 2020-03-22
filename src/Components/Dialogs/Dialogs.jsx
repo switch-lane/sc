@@ -1,11 +1,8 @@
 import React from "react";
 import classes from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-///
-import {onMessageChangeActionCreator, addMessageActionCreator } from "../Redux/message-reducer"
-///
+
 
 const Dialogs = (props) => {
     /// key={key.id} ???

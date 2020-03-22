@@ -3,13 +3,9 @@ import "./index.css";
 import ReactDOM from "react-dom"
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state, {subscribe} from "./Components/Redux/store";
 import {BrowserRouter} from "react-router-dom";
-import {addPost} from "./Components/Redux/store";
 import store from "./Components/Redux/redux-store";
 import './index.css';
-import {updateNewPostText} from "./Components/Redux/store";
-// import {Provider} from "./StoreContext";
 import {Provider} from "react-redux";
 
 
@@ -23,6 +19,8 @@ ReactDOM.render(
             <App/>
         </Provider>
     </BrowserRouter>, document.getElementById('root'));
+
+window.store = store;
 
 
 // store.subscribe(renderEntireTree);

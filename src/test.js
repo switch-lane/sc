@@ -186,3 +186,16 @@
 //     }
 // }
 // one()()
+
+// class Man {
+//     constructor(name) {
+//         this.name = name
+//     }
+//     render() {
+//         console.log(this.name)
+//     }
+// }
+// let new_man = new Man('Dave')
+// let x = new_man.render
+// console.log(typeof x)
+

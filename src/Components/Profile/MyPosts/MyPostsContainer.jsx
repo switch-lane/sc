@@ -2,10 +2,7 @@ import React from "react";
 import {addPostActionCreator} from "../../Redux/profile-reducer"
 import {onPostChangeActionCreator} from "../../Redux/profile-reducer"
 import MyPosts from "./MyPosts";
-import StoreContext from "../../../StoreContext";
-import {addMessageActionCreator, onMessageChangeActionCreator} from "../../Redux/message-reducer";
 import {connect} from "react-redux";
-import Dialogs from "../../Dialogs/Dialogs";
 
 
 // const MyPostsContainer = () => {
@@ -50,6 +47,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-let SuperMyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+let MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 // export default MyPostsContainer
-export default SuperMyPostsContainer
+export default MyPostsContainer

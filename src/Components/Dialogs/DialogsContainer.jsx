@@ -1,7 +1,6 @@
 import React from "react";
 import {onMessageChangeActionCreator, addMessageActionCreator } from "../Redux/message-reducer"
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
 import {connect} from "react-redux";
 
 // const DialogsContainer = () => {
@@ -45,8 +44,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 
-export default SuperDialogsContainer
+export default DialogsContainer
 // export default DialogsContainer
