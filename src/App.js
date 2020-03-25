@@ -9,6 +9,7 @@ import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 
 
@@ -18,7 +19,7 @@ const App = (props) => {
 
     return (
         <div className='app-wrapper'>
-            <Header/>
+            <HeaderContainer/>
 
             <div className='app-wrapper-content'>
                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>

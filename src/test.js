@@ -199,3 +199,13 @@
 // let x = new_man.render
 // console.log(typeof x)
 
+
+// function urlCreator(domain) {
+//     return function (url) {
+//         return  `https://${url}${domain}`
+//     }
+// }
+// let comDomain = urlCreator('.com')
+// let ruDomain = urlCreator('.ru')
+// console.log(comDomain('google'))
+// console.log(ruDomain('yandex'))
