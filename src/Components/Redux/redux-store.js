@@ -5,6 +5,8 @@ import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./user-reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk"
+import { reducer as formReducer } from 'redux-form'
+import appReducer from "./app-reducer";
 
 let benchOfReducers = combineReducers({
     //методы этого объекта это свойства state
@@ -12,7 +14,9 @@ let benchOfReducers = combineReducers({
     MessagesPage: messageReducer,
     sidebar: sidebarReducer,
     usersPage: usersReducer,
-    auth: authReducer
+    auth: authReducer,
+    form: formReducer,
+    app: appReducer
 });
 let store = createStore(benchOfReducers, applyMiddleware(thunkMiddleware));
 

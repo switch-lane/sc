@@ -40,8 +40,6 @@ const Users = (props) => {
                     <div>
                         {
                             u.followed ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-
-
                                     //вынесено в api
                                     // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
                                     //     withCredentials: true,
@@ -61,8 +59,6 @@ const Users = (props) => {
                                     //         props.toggleFollowingProgress(false, u.id)
                                     //
                                     //     });
-
-
 
                                 }}>Unfollow</button>
 
@@ -86,10 +82,7 @@ const Users = (props) => {
                                     //
                                     //     });
 
-
-
                                 }}>Follow</button>
-
                         }
                     </div>
                     <span>

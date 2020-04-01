@@ -91,7 +91,6 @@ export const toggleFollowingProgress = (statusProgress, userId) => ({type: TOGGL
 
 //THUNKS:
 export const getUsersThunkCreator = (currentPage, pageSize) => {
-    debugger
     //currentPage, pageSize замыкаются в thunk
     return (dispatch) => {
         dispatch(toggleIsFetching(true))

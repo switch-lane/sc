@@ -1,6 +1,9 @@
+import {profileAPI} from "../../api/api";
+
 let ADD_POST = 'ADD-POST';
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let SET_USER_PROFILE = 'SET-USER-PROFILE';
+let SET_USER_STATUS = 'SET-USER-STATUS';
 
 let initialState = {
     PostsData: [
@@ -9,7 +12,8 @@ let initialState = {
         {id: 3, text: 'Yo!', likes: 3}
     ],
     newPostText: 'default :)',
-    profile: null
+    profile: null,
+    status: ''
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -18,24 +22,36 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST: {
             let newPost = {
                 id: 4,
-                text: state.newPostText,
+                // text: state.newPostText,
+                text: action.body,
                 likes: 80
             };
-            return  {...state,
+            return {
+                ...state,
                 PostsData: [...state.PostsData, newPost],
-                newPostText: ''};
+                newPostText: ''
+            };
             // stateCopy.PostsData = [...state.PostsData];
             // stateCopy.PostsData.push(newPost);
             // stateCopy.newPostText = '';
             // return stateCopy
         }
-        case UPDATE_NEW_POST_TEXT: {
-            return {...state, newPostText: action.newText};
+        // case UPDATE_NEW_POST_TEXT: {
+        //     return {...state, newPostText: action.newText};
             // stateCopy.newPostText = action.newText;
             // return stateCopy
-        } case SET_USER_PROFILE: {
+        //}
+        case SET_USER_PROFILE: {
             return {...state, profile: action.profile}
         }
+        case SET_USER_STATUS: {
+            return {
+                ...state,
+                status: action.status
+            }
+
+        }
+
         default:
             return state;
     }
@@ -66,14 +82,52 @@ const profileReducer = (state = initialState, action) => {
 // };
 
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, body: newPostText});
 
 export const onPostChangeActionCreator = (text) => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text
 });
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile: profile});
+export const setUserStatus = (status) => ({type: SET_USER_STATUS, status: status});
 
+//THUNKS:
+
+export const getUserProfileThunkCreator = (userId) => {
+    return (dispatch) => {
+
+        // if (!userId) {
+        //     userId = '2'
+        // }
+
+        profileAPI.getUserProfile(userId)
+        //вынесено в api
+        //axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+            .then(response => {
+                dispatch(setUserProfile(response.data))
+            })
+    }
+};
+
+export const getUserStatusThunkCreator = (userid) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userid)
+            .then(response => {
+                dispatch(setUserStatus(response.data))
+            })
+    }
+};
+
+export const updateUserStatusThunkCreator = (status) => {
+    return (dispatch) => {
+        profileAPI.getUpdateStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(setUserStatus(status))
+                }
+            })
+    }
+};
 
 
 export default profileReducer

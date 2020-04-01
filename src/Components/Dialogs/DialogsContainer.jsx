@@ -2,6 +2,9 @@ import React from "react";
 import {onMessageChangeActionCreator, addMessageActionCreator } from "../Redux/message-reducer"
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../Hoc/withAuthRedirect";
+import {compose} from "redux";
 
 // const DialogsContainer = () => {
 //
@@ -31,21 +34,35 @@ import {connect} from "react-redux";
 const mapStateToProps = (state) => {
     return {
         MessagesPage: state.MessagesPage,
+
     }
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        AddMess: () => {
-            dispatch(addMessageActionCreator())
+        AddMess: (newMessageText) => {
+            dispatch(addMessageActionCreator(newMessageText))
         },
-        onMessChange: (text) => {
-            dispatch(onMessageChangeActionCreator(text))
-        }
+        // onMessChange: (text) => {
+        //     dispatch(onMessageChangeActionCreator(text))
+        // }
     }
 };
+//перенесенов hoc
+// let AuthRedirectContainerComponent = (props) => {
+//     if (!props.isAuth) {return <Redirect to={'/login'}/>}
+//     return <Dialogs {...props}/>
+// };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
+//start -- перенесенов compose
+// let AuthRedirectContainerComponentWithState = withAuthRedirect(Dialogs)
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectContainerComponentWithState)
+//end
 
-export default DialogsContainer
-// export default DialogsContainer
+let Composed = compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);
+
+//export default DialogsContainer
+export default Composed

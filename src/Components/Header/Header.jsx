@@ -12,9 +12,9 @@ const Header = (props) => {
 
                 <div className={classes.loginBlock}>
                     <div>
-                        <img src={props.isAuth ? logAvatar : null} alt=""/>
+                        {/*<img src={props.isAuth ? logAvatar : null} alt=""/>*/}
 
-                        {props.isAuth ? props.login : <NavLink className={classes.loginBlock} to={'/login'}>Login</NavLink>}
+                        {props.isAuth ? <div>{props.login} <button onClick={props.getLogoutThunkCreator}>Logout</button></div> : <NavLink className={classes.loginBlock} to={'/login'}>Login</NavLink>}
                     </div>
                 </div>
         </header>

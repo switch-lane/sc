@@ -209,3 +209,5 @@
 // let ruDomain = urlCreator('.ru')
 // console.log(comDomain('google'))
 // console.log(ruDomain('yandex'))
+
+

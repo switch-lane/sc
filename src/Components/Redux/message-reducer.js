@@ -24,7 +24,8 @@ const messageReducer = (state = initialState, action) => {
     if (action.type === SEND_MESSAGE) {
         let newMessage = {
             id: 4,
-            text: state.newMessageText
+            text: action.body
+            // text: state.newMessageText
         };
         return  {...state,
             newMessageText: '',
@@ -35,8 +36,8 @@ const messageReducer = (state = initialState, action) => {
         // return stateCopy
 
 
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        return {...state, newMessageText: action.newMText};
+    // } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+    //     return {...state, newMessageText: action.newMText};
         // stateCopy.newMessageText = action.newMText;
         // return stateCopy
 
@@ -62,12 +63,12 @@ const messageReducer = (state = initialState, action) => {
 //     return state
 // };
 
-export const addMessageActionCreator = () => ({type: SEND_MESSAGE});
+export const addMessageActionCreator = (newMessageText) => ({type: SEND_MESSAGE, body: newMessageText});
 
-export const onMessageChangeActionCreator = (text) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newMText: text
-});
+// export const onMessageChangeActionCreator = (text) => ({
+//     type: UPDATE_NEW_MESSAGE_TEXT,
+//     newMText: text
+// });
 
 
 

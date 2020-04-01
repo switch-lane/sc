@@ -1,19 +1,18 @@
 import React from "react";
 import {connect} from "react-redux";
-import {
-    follow, followThunk, getUsersThunkCreator, getUsersThunkCreatorPageChanged,
+import {followThunk, getUsersThunkCreator, getUsersThunkCreatorPageChanged,
     setCurrentPage, setTotalUsersCount, setUsers,
-    toggleFollowingProgress, toggleIsFetching,
-    unfollow, unfollowThunk
+    toggleFollowingProgress, toggleIsFetching, unfollowThunk
 } from "../Redux/user-reducer";
 import Users from "./Users";
 import preloader from '../../assets/images/6.gif'
-import {usersAPI} from "../../api/api";
+import {withAuthRedirect} from "../Hoc/withAuthRedirect";
+import {compose} from "redux";
 
 // контейнерная компонента для AJAX запроса на сервер
 class UsersAPIComponent extends React.Component {
 
-
+    //выполняется сразу после render() и сообщается, что можно делать запрос на сервер
     componentDidMount() {
     //перенесен в thunk
         this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
@@ -111,6 +110,8 @@ const mapStateToProps = (state) => {
 //     }
 // };
 
+let AuthRedirectContainerComponentWithState = withAuthRedirect(UsersAPIComponent)
+
 
 const UsersContainer = connect(mapStateToProps, {
     // передаем callback follow в компоненту, ком-та вызывает его и передает пар-тр userid,
@@ -124,8 +125,23 @@ const UsersContainer = connect(mapStateToProps, {
     setTotalUsersCount,
     getUsersThunkCreator,
     getUsersThunkCreatorPageChanged
+})(AuthRedirectContainerComponentWithState);
 
 
-})(UsersAPIComponent);
+let Composed = compose(
+    connect(mapStateToProps, {
+        followThunk,
+        unfollowThunk,
+        setCurrentPage,
+        toggleFollowingProgress,
+        toggleIsFetching,
+        setUsers,
+        setTotalUsersCount,
+        getUsersThunkCreator,
+        getUsersThunkCreatorPageChanged
+    }),
+    //withAuthRedirect
+)(UsersAPIComponent);
 
-export default UsersContainer
+//export default UsersContainer
+export default Composed

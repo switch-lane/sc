@@ -39,7 +39,29 @@ export const usersAPI = {
     }
 };
 
+export const profileAPI = {
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId}`)
+    },
+    getStatus(userId) {
+        return instance.get(`profile/status/${userId}`)
+    },
+    getUpdateStatus(status) {
+        return instance.put(`profile/status`, {status: status})
+    }
+};
 
+export const authAPI = {
+    getAuthUserData() {
+        return instance.get(`auth/me`)
+    },
+    getLogin(email, password, rememberMe=false) {
+        return instance.post(`auth/login`, {email, password, rememberMe})
+    },
+    getLoginout() {
+        return instance.delete(`auth/login` )
+    }
+};
 
 
 // export const getUsers = (currentPage = 1, pageSize = 10) => {
