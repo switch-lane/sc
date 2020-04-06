@@ -4,6 +4,8 @@ let ADD_POST = 'ADD-POST';
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let SET_USER_PROFILE = 'SET-USER-PROFILE';
 let SET_USER_STATUS = 'SET-USER-STATUS';
+let DELETE_POST = 'DELETE-POST';
+let PHOTO_IS_SAVED = 'PHOTO-IS-SAVED'
 
 let initialState = {
     PostsData: [
@@ -51,6 +53,19 @@ const profileReducer = (state = initialState, action) => {
             }
 
         }
+        case DELETE_POST: {
+            return {
+                ...state,
+                PostsData: state.PostsData.filter(p => p.id != action.postId)
+            }
+        }
+        case PHOTO_IS_SAVED: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photoFile }
+
+            }
+        }
 
         default:
             return state;
@@ -90,44 +105,47 @@ export const onPostChangeActionCreator = (text) => ({
 });
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile: profile});
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status: status});
+export const deletePost = (postId) => ({type: DELETE_POST, postId})
+export const savePhotoSuccessful = (photoFile) => ({type: PHOTO_IS_SAVED, photoFile})
 
 //THUNKS:
 
-export const getUserProfileThunkCreator = (userId) => {
-    return (dispatch) => {
+export const getUserProfileThunkCreator = (userId) =>
+    async (dispatch) => {
 
-        // if (!userId) {
-        //     userId = '2'
-        // }
-
-        profileAPI.getUserProfile(userId)
+        let response = await profileAPI.getUserProfile(userId)
         //вынесено в api
-        //axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
+        //     .then(response => {
                 dispatch(setUserProfile(response.data))
-            })
-    }
-};
 
-export const getUserStatusThunkCreator = (userid) => {
-    return (dispatch) => {
-        profileAPI.getStatus(userid)
-            .then(response => {
+    }
+
+export const getUserStatusThunkCreator = (userid) =>
+    async (dispatch) => {
+       let response = await profileAPI.getStatus(userid)
+            // .then(response => {
                 dispatch(setUserStatus(response.data))
-            })
-    }
-};
 
-export const updateUserStatusThunkCreator = (status) => {
-    return (dispatch) => {
-        profileAPI.getUpdateStatus(status)
-            .then(response => {
+    }
+
+
+export const updateUserStatusThunkCreator = (status) =>
+    async (dispatch) => {
+        let response = await profileAPI.getUpdateStatus(status)
+            // .then(response => {
                 if (response.data.resultCode === 0) {
                     dispatch(setUserStatus(status))
                 }
-            })
-    }
-};
 
+    }
+
+export const savePhotoThunkCreator = (file) =>
+    async (dispatch) => {
+    let response = await profileAPI.getPhoto(file)
+        if (response.data.resultCode === 0) {
+            dispatch(savePhotoSuccessful(response.data.data.photos))
+        }
+
+    }
 
 export default profileReducer

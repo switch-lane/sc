@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {followThunk, getUsersThunkCreator, getUsersThunkCreatorPageChanged,
+import {
+    followThunk, getUsersThunkCreator, getUsersThunkCreatorPageChanged,
     setCurrentPage, setTotalUsersCount, setUsers,
     toggleFollowingProgress, toggleIsFetching, unfollowThunk
 } from "../Redux/user-reducer";
@@ -8,13 +9,19 @@ import Users from "./Users";
 import preloader from '../../assets/images/6.gif'
 import {withAuthRedirect} from "../Hoc/withAuthRedirect";
 import {compose} from "redux";
+import {
+    getCurrentPageSelector, getFollowingInProgressSelector, getIsFetchingSelector,
+    getPageSizeSelector,
+    getTotalUsersCountSelector,
+    getUsersSelector, getUsersSelectorSuper
+} from "../Redux/user-selectors";
 
 // контейнерная компонента для AJAX запроса на сервер
 class UsersAPIComponent extends React.Component {
 
     //выполняется сразу после render() и сообщается, что можно делать запрос на сервер
     componentDidMount() {
-    //перенесен в thunk
+        //перенесен в thunk
         this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
 
 
@@ -30,6 +37,7 @@ class UsersAPIComponent extends React.Component {
         //
         // });
     }
+
     // все методы яв-ся стрелочными ф-ми для сохранения контекста вызова
     onPageChanged = (pageNumber) => {
         //перенесен в thunk
@@ -47,12 +55,14 @@ class UsersAPIComponent extends React.Component {
         //
         // });
     }
+
     render() {
+
 
 
         return <>
 
-            {this.props.isFetching ? <img src={preloader} /> : null}
+            {this.props.isFetching ? <img src={preloader}/> : null}
 
             <Users currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
@@ -63,7 +73,7 @@ class UsersAPIComponent extends React.Component {
                    pageSize={this.props.pageSize}
                    toggleFollowingProgress={this.props.toggleFollowingProgress}
                    followingInProgress={this.props.followingInProgress}
-                   />
+            />
 
         </>
 
@@ -73,16 +83,23 @@ class UsersAPIComponent extends React.Component {
 
 // контейнерная компонента для связи со store
 const mapStateToProps = (state) => {
-
-
+//selectors:
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        users: getUsersSelectorSuper(state),
+        pageSize: getPageSizeSelector(state),
+        totalUsersCount: getTotalUsersCountSelector(state),
+        currentPage: getCurrentPageSelector(state),
+        isFetching: getIsFetchingSelector(state),
+        followingInProgress: getFollowingInProgressSelector(state),
     }
+//     return {
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         followingInProgress: state.usersPage.followingInProgress
+//     }
 
 };
 // const mapDispatchToProps = (dispatch) => {
@@ -110,22 +127,22 @@ const mapStateToProps = (state) => {
 //     }
 // };
 
-let AuthRedirectContainerComponentWithState = withAuthRedirect(UsersAPIComponent)
+// let AuthRedirectContainerComponentWithState = withAuthRedirect(UsersAPIComponent)
 
 
-const UsersContainer = connect(mapStateToProps, {
-    // передаем callback follow в компоненту, ком-та вызывает его и передает пар-тр userid,
-    // затем вызываем АС с этим же пар-ом и диспатчим этот объект в state
-    followThunk,
-    unfollowThunk,
-    setCurrentPage,
-    toggleFollowingProgress,
-    toggleIsFetching,
-    setUsers,
-    setTotalUsersCount,
-    getUsersThunkCreator,
-    getUsersThunkCreatorPageChanged
-})(AuthRedirectContainerComponentWithState);
+// const UsersContainer = connect(mapStateToProps, {
+//     // передаем callback follow в компоненту, ком-та вызывает его и передает пар-тр userid,
+//     // затем вызываем АС с этим же пар-ом и диспатчим этот объект в state
+//     followThunk,
+//     unfollowThunk,
+//     setCurrentPage,
+//     toggleFollowingProgress,
+//     toggleIsFetching,
+//     setUsers,
+//     setTotalUsersCount,
+//     getUsersThunkCreator,
+//     getUsersThunkCreatorPageChanged
+// })(AuthRedirectContainerComponentWithState);
 
 
 let Composed = compose(

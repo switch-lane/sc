@@ -3,22 +3,33 @@ import "./index.css";
 import ReactDOM from "react-dom"
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter} from "react-router-dom";
 import store from "./Components/Redux/redux-store";
 import './index.css';
 import {Provider} from "react-redux";
 
+///
+// setInterval(() => {
+//     store.dispatch({type: 'fake'})
+// }, 1000)
+///
 
+
+//по умолчанию
+// ReactDOM.render(
+//     <BrowserRouter>
+//         <Provider store={store}>
+//             <App/>
+//         </Provider>
+//     </BrowserRouter>, document.getElementById('root'));
+
+//для github pages
 ReactDOM.render(
-    <BrowserRouter>
-        {/*<App state={state} dispatch={store.dispatch.bind(store)} store={store}/>*/}
-        {/*<StoreContext.Provider value={store}>*/}
-        {/*    <App/>*/}
-        {/*</StoreContext.Provider>*/}
+    <HashRouter>
         <Provider store={store}>
             <App/>
         </Provider>
-    </BrowserRouter>, document.getElementById('root'));
+    </HashRouter>, document.getElementById('root'));
 
 window.store = store;
 

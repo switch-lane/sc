@@ -7,6 +7,7 @@ const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const TOTAL_USERS_COUNT = 'TOTAL-USERS-COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING ';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS'
+const fake = 'fake'
 
 let initialState = {
     users: [],
@@ -14,7 +15,8 @@ let initialState = {
     totalUsersCount: 21,
     currentPage: 1,
     isFetching: true,
-    followingInProgress: []
+    followingInProgress: [],
+    fake: 'fake'
 };
 let usersReducer = (state = initialState, action) => {
 
@@ -76,6 +78,7 @@ let usersReducer = (state = initialState, action) => {
                     : state.followingInProgress.filter(id => id != action.userId)
             }
         }
+        // case fake: return {...state, fake: state.fake + 1}
         default: return state;
     }
 };
@@ -92,64 +95,61 @@ export const toggleFollowingProgress = (statusProgress, userId) => ({type: TOGGL
 //THUNKS:
 export const getUsersThunkCreator = (currentPage, pageSize) => {
     //currentPage, pageSize замыкаются в thunk
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true))
         //вынесено в api
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true})
-        usersAPI.getUsers(currentPage, pageSize)
-            .then((data) => {
+        let data = await usersAPI.getUsers(currentPage, pageSize)
+            // .then((data) => {
                 dispatch(toggleIsFetching(false))
                 dispatch(setUsers(data.items))
                 dispatch(setTotalUsersCount(data.totalCount))
-            });
-    }
-};
 
-export const getUsersThunkCreatorPageChanged = (pageNumber, pageSize) => {
+    }
+}
+
+
+export const getUsersThunkCreatorPageChanged = (pageNumber, pageSize) =>
     //currentPage, pageSize замыкаются в thunk
-    return (dispatch) => {
+    async (dispatch) => {
         dispatch(setCurrentPage(pageNumber))
         dispatch(toggleIsFetching(true))
 
-        usersAPI.getUsers(pageNumber, pageSize)
+        let data = await usersAPI.getUsers(pageNumber, pageSize)
         //вынесено в api
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {withCredentials: true})
-            .then((data) => {
+        //     .then((data) => {
                 dispatch(toggleIsFetching(false))
                 dispatch(setUsers(data.items));
-            });
-    }
-};
 
-export const unfollowThunk = (userId) => {
+    }
+
+
+export const unfollowThunk = (userId) =>
     //currentPage, pageSize замыкаются в thunk
-    return (dispatch) => {
+    async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId))
 
-        usersAPI.getFollow(userId)
-            .then(response => {
+        let response = await usersAPI.getFollow(userId)
+            // .then(response => {
 
                 if (response.data.resultCode == 0) {
                     dispatch(unfollow(userId))
                 }
                 dispatch(toggleFollowingProgress(false, userId))
-            });
     }
-};
 
-export const followThunk = (userId) => {
+
+export const followThunk = (userId) =>
     //currentPage, pageSize замыкаются в thunk
-    return (dispatch) => {
+    async (dispatch) => {
        dispatch( toggleFollowingProgress(true, userId))
-        usersAPI.getUnfollow(userId)
-            .then(response => {
+        let response= await usersAPI.getUnfollow(userId)
+            // .then(response => {
 
                 if (response.data.resultCode == 0) {
                     dispatch(follow(userId))
                 }
                dispatch( toggleFollowingProgress(false, userId))
-            });
+
     }
-}
 
 export default usersReducer

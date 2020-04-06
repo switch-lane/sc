@@ -3,13 +3,21 @@ import classes from './ProfileInfo.module.css'
 import preloader from '../../../assets/images/6.gif'
 import Profile from "../Profile";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
+import userPhoto from "../../../assets/images/user-icon.png"
 
 
 const ProfileInfo = (props) => {
+    debugger
 
     if(!props.profile) {
         return <img src={preloader}/>
         // return <preloader/>
+    }
+    const onMainPhotoSelected = (event) => {
+        if (event.target.files.length) {
+            props.savePhoto(event.target.files[0])
+        }
     }
 
 
@@ -21,9 +29,13 @@ const ProfileInfo = (props) => {
 
             <div className={classes.description}>
 
-                <img src={props.profile.photos.large}/>
+                <img className={classes.mainPhoto} src={props.profile.photos.large || userPhoto}/>
 
-                <ProfileStatus status={props.status} updateUserStatusThunkCreator={props.updateUserStatusThunkCreator}/>
+                <div>
+                {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+                </div>
+
+                <ProfileStatusWithHooks status={props.status} updateUserStatusThunkCreator={props.updateUserStatusThunkCreator}/>
 
                 <div>Description:</div>
                 <div>{'About Me: ' + props.profile.aboutMe}</div>

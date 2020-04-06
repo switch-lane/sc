@@ -31,28 +31,26 @@ export const setAuthUserData = (userId, login, email, isAuth) => {
 
 //THUNKS:
 
-export const getAuthUserDataThunkCreator = () => (dispatch) => {
-        //второй return возвращает вызов thunkcreator'а наоружу (в dispatchResult)
-        return  authAPI.getAuthUserData()
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true})
-            .then(response => {
+export const getAuthUserDataThunkCreator = () => async (dispatch) => {
+        //второй return возвращает вызов thunkcreator'а наоружу
+        let response = await  authAPI.getAuthUserData()
+
+            //переделано на async await
+            // .then(response => {
 
                 if (response.data.resultCode === 0) {
                     let {id, login, email} = response.data.data;
                     dispatch(setAuthUserData(id, login, email, true))
                 }
-            })
-
-
     }
 
-export const getLoginThunkCreator = (email, password, rememberMe) => {
+export const getLoginThunkCreator = (email, password, rememberMe) =>
 
-    return (dispatch) => {
+    async (dispatch) => {
 
 
-        authAPI.getLogin(email, password, rememberMe)
-            .then(response => {
+        let response = await authAPI.getLogin(email, password, rememberMe)
+            // .then(response => {
                 if (response.data.resultCode === 0) {
                     dispatch(getAuthUserDataThunkCreator())
                 } else {
@@ -60,18 +58,18 @@ export const getLoginThunkCreator = (email, password, rememberMe) => {
 
                     dispatch(stopSubmit('login', {_error: message}))
                 }
-            })
+
     }
 
-}
 
-export const getLogoutThunkCreator = () => {
-    return (dispatch) => {
-        authAPI.getLoginout()
-            .then(response => {
-                dispatch(setAuthUserData(null, null, null, false))
-            })
+export const getLogoutThunkCreator = () =>
+    async (dispatch) => {
+        let response = await authAPI.getLoginout()
+            // .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(setAuthUserData(null, null, null, false))
+                }
     }
-}
+
 
 export default authReducer

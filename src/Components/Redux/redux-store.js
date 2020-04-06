@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import messageReducer from "./message-reducer";
 import sidebarReducer from "./sidebar-reducer";
@@ -18,6 +18,12 @@ let benchOfReducers = combineReducers({
     form: formReducer,
     app: appReducer
 });
-let store = createStore(benchOfReducers, applyMiddleware(thunkMiddleware));
+
+// 1.chrome extensions:
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(benchOfReducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
+
+//2.original:
+//const store = createStore(benchOfReducers, applyMiddleware(thunkMiddleware));
 
 export default store

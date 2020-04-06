@@ -1,12 +1,10 @@
 import React from "react";
 import classes from './ProfileStatus.module.css'
 
-
+// переделано на хуки!!!
 class ProfileStatus extends React.Component {
 
-
     state = {
-
         editMode: false,
         status: this.props.status
     }
