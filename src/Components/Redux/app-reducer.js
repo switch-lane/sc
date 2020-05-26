@@ -2,7 +2,7 @@ import {authAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
 import {getAuthUserDataThunkCreator} from "./auth-reducer";
 
-const INITIALIZED_SUCCESSFUL= 'INITIALIZED-SUCCESSFUL';
+const INITIALIZED_SUCCESSFUL= 'app/INITIALIZED-SUCCESSFUL';
 
 
 let initialState = {

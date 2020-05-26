@@ -8,6 +8,7 @@ import thunkMiddleware from "redux-thunk"
 import { reducer as formReducer } from 'redux-form'
 import appReducer from "./app-reducer";
 
+
 let benchOfReducers = combineReducers({
     //методы этого объекта это свойства state
     ProfilePage: profileReducer,

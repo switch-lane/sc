@@ -9,39 +9,32 @@ import {Textarea} from "../../common/FormControls/FormControls";
 
 
 
+
 const MyPosts = (props) => {
 
-    let PostObj = props.PostsData.map((key) => <Post message={key.text} likes={key.likes}/>);
+    if(!props.profile) {
+        return 'Loading...'
+        // return <preloader/>
+    }
 
-    let newPostElement = React.createRef();
+    let PostObj = props.PostsData.map((key) => <Post key={key.id} message={key.text} likes={key.likes} profile={props.profile}/>);
 
-    let onAddPost = () => {
-        // let text = newPostElement.current.value;
-        // props.dispatch(addPostActionCreator());
-        props.addPost()
-        // props.updateNewPostText('')
-    };
-
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        // props.dispatch(onPostChangeActionCreator(text))
-        props.updateNewPostText(text)
-    };
 
     //набранный текст хранится в стейте redux-form
     let addNewPost = (formData) => {
         props.addPost(formData.newPostText)
+        props.reset('AddPostForm')
+
     }
 
+
     return (
+
         <div className={classes.posts}>
-            <h3>My Posts</h3>
+            <h3>My Posts:</h3>
 
             <AddPostReduxForm onSubmit={addNewPost}/>
-            <div>
-                New Post
-            </div>
+
             <div className={classes.mes}>
                 {PostObj}
             </div>
@@ -50,19 +43,18 @@ const MyPosts = (props) => {
     )
 };
 
-let maxLength = maxLengthCreator(10)
+let maxLength = maxLengthCreator(50)
 
 const AddPostForm = (props) => {
     return (<div>
-            <form onSubmit={props.handleSubmit}>
+
+            <form className={classes.box} onSubmit={props.handleSubmit}>
                 <div>
-                    {/*<textarea ref={newPostElement}></textarea>*/}
-                    {/*<textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>*/}
-                    <Field component={Textarea} name={'newPostText'} placeholder={'default -_- from redux-form'} validate={[required, maxLength]}/>
+                    <Field component={Textarea} name={'newPostText'} placeholder={'Enter your text...'} validate={[maxLength]}/>
                 </div>
+
                 <div>
-                    {/*<button onClick={onAddPost}>Add post</button>*/}
-                    <button>Add post</button>
+                    <button className={classes.button}>Add post</button>
                 </div>
             </form>
         </div>

@@ -12,7 +12,7 @@ const LoginForm = (props) => {
     //внутри handleSubmit вызывается onSubmit() и в него передается formData
     return <div>
 
-        <form onSubmit={props.handleSubmit}>
+        <form className={classes.box} onSubmit={props.handleSubmit}>
             <div>
                 <Field component={Input} name={'email'} placeholder={'email'} validate={[required]}/>
             </div>
@@ -22,13 +22,17 @@ const LoginForm = (props) => {
             <div>
                 <Field component={Input} name={'rememberMe'} type={'checkbox'}/> remember me
             </div>
+            
+            {props.captchaUrl && <img src={props.captchaUrl}/>}
+            {props.captchaUrl && <Field component={Input} name={'captcha'} placeholder={''} validate={[required]}/>}
+
             {/*Общий error появился путем добавления _error в stopSubmit()*/}
             {props.error && <div className={classes.formSummaryError}>
                 {props.error}
 
             </div>}
             <div>
-                <button>Sign in</button>
+                <button >Sign in</button>
             </div>
 
         </form>
@@ -45,13 +49,13 @@ const Login = (props) => {
 
 
     const onSubmit = (formData) => {
-        props.getLoginThunkCreator(formData.email, formData.password, formData.rememberMe)
+        props.getLoginThunkCreator(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
     if (props.isAuth) {
         return <Redirect to={'/profile'}/>
     }
     //этот onSubmit вызывается внутри handleSubmit в LoginForm
-    return <LoginReduxForm onSubmit={onSubmit}/>
+    return <LoginReduxForm captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
 };
 
 export default Login;

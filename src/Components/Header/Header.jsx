@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Header.module.css'
 import {NavLink} from "react-router-dom";
-import logAvatar from '../../assets/images/jedi-kenobi-obiwan.png'
+
 
 const Header = (props) => {
     return (
@@ -14,7 +14,9 @@ const Header = (props) => {
                     <div>
                         {/*<img src={props.isAuth ? logAvatar : null} alt=""/>*/}
 
-                        {props.isAuth ? <div>{props.login} <button onClick={props.getLogoutThunkCreator}>Logout</button></div> : <NavLink className={classes.loginBlock} to={'/login'}>Login</NavLink>}
+                        {props.isAuth
+                            ? <div>{props.login} <button className={classes.button} onClick={props.getLogoutThunkCreator}>Logout</button></div>
+                            : <NavLink className={classes.loginBlock} to={'/login'}>Sign In</NavLink>}
                     </div>
                 </div>
         </header>

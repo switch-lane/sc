@@ -1,6 +1,7 @@
 .header {
     grid-area: h;
     background-color: #304875;
+    border-radius: 10px;
 }
 .header img {
     width: 60px;
@@ -13,14 +14,29 @@
     color: white;
     font-size: 20px;
 
+
 }
 .loginBlock img {
     float: right;
     margin-right: 200px;
     max-height: 40px;
     max-width: 50px;
+
 }
-/*.loginBlock a {*/
-/*    text-decoration-line: none;*/
-/*    color: white;*/
-/*}*/
+.button {
+    border-radius: 8px;
+    background-color: #F2F2F2;
+    border: none;
+    color: black;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    width: 65px;
+    height: 25px;
+}
+.button:hover {
+    background-color: #AF3551;
+    color: white;
+}

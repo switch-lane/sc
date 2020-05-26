@@ -13,5 +13,6 @@
 }
 .app-wrapper-content {
   grid-area: c;
-  background-color: cadetblue;
+  background-color: #8d9fa0;
+  border-radius: 10px;
 }

@@ -8,3 +8,29 @@
 .mainPhoto {
     max-width: 200px;
 }
+.contacts {
+    padding-left: 15px;
+}
+.formSummaryError {
+    border: solid red 2px;
+    padding: 5px;
+    color: red;
+    max-width: 160px;
+
+}
+.button {
+    border-radius: 8px;
+    background-color: #F2F2F2;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+}
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}

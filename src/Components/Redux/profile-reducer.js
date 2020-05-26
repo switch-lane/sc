@@ -1,11 +1,11 @@
 import {profileAPI} from "../../api/api";
+import {stopSubmit} from "redux-form";
 
-let ADD_POST = 'ADD-POST';
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-let SET_USER_PROFILE = 'SET-USER-PROFILE';
-let SET_USER_STATUS = 'SET-USER-STATUS';
-let DELETE_POST = 'DELETE-POST';
-let PHOTO_IS_SAVED = 'PHOTO-IS-SAVED'
+let ADD_POST = 'profile/ADD-POST';
+let SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
+let SET_USER_STATUS = 'profile/SET-USER-STATUS';
+let DELETE_POST = 'profile/DELETE-POST';
+let PHOTO_IS_SAVED = 'profile/PHOTO-IS-SAVED';
 
 let initialState = {
     PostsData: [
@@ -13,36 +13,26 @@ let initialState = {
         {id: 2, text: 'Hello, hi are you?', likes: 3},
         {id: 3, text: 'Yo!', likes: 3}
     ],
-    newPostText: 'default :)',
     profile: null,
     status: ''
 };
 
 const profileReducer = (state = initialState, action) => {
 
+
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
                 id: 4,
-                // text: state.newPostText,
                 text: action.body,
                 likes: 80
             };
             return {
                 ...state,
-                PostsData: [...state.PostsData, newPost],
-                newPostText: ''
+                PostsData: [newPost, ...state.PostsData,],
+
             };
-            // stateCopy.PostsData = [...state.PostsData];
-            // stateCopy.PostsData.push(newPost);
-            // stateCopy.newPostText = '';
-            // return stateCopy
         }
-        // case UPDATE_NEW_POST_TEXT: {
-        //     return {...state, newPostText: action.newText};
-            // stateCopy.newPostText = action.newText;
-            // return stateCopy
-        //}
         case SET_USER_PROFILE: {
             return {...state, profile: action.profile}
         }
@@ -72,37 +62,9 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-// const profileReducer = (state = initialState, action) => {
-//     if (action.type === ADD_POST) {
-//         let newPost = {
-//             id: 4,
-//             text: state.newPostText,
-//             likes: 80
-//         };
-//         let stateCopy = {...state};
-//         stateCopy.PostsData = {...state.PostsData};
-//         stateCopy.PostsData.push(newPost);
-//         stateCopy.newPostText = '';
-//         return stateCopy
-//
-//
-//
-//     } else if (action.type === UPDATE_NEW_POST_TEXT) {
-//         let stateCopy = {...state};
-//         stateCopy.newPostText = {...state.newPostText};
-//         stateCopy.newPostText = action.newText;
-//         return stateCopy
-//
-//     } else return state
-// };
 
 
-export const addPostActionCreator = (newPostText) => ({type: ADD_POST, body: newPostText});
-
-export const onPostChangeActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text
-});
+export const addPost = (newPostText) => ({type: ADD_POST, body: newPostText});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile: profile});
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status: status});
 export const deletePost = (postId) => ({type: DELETE_POST, postId})
@@ -114,8 +76,6 @@ export const getUserProfileThunkCreator = (userId) =>
     async (dispatch) => {
 
         let response = await profileAPI.getUserProfile(userId)
-        //вынесено в api
-        //     .then(response => {
                 dispatch(setUserProfile(response.data))
 
     }
@@ -123,7 +83,6 @@ export const getUserProfileThunkCreator = (userId) =>
 export const getUserStatusThunkCreator = (userid) =>
     async (dispatch) => {
        let response = await profileAPI.getStatus(userid)
-            // .then(response => {
                 dispatch(setUserStatus(response.data))
 
     }
@@ -131,12 +90,16 @@ export const getUserStatusThunkCreator = (userid) =>
 
 export const updateUserStatusThunkCreator = (status) =>
     async (dispatch) => {
+    try {
         let response = await profileAPI.getUpdateStatus(status)
-            // .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setUserStatus(status))
-                }
 
+        if (response.data.resultCode === 0) {
+            dispatch(setUserStatus(status))
+        }
+    } catch (error) {
+        // 1.dispatch
+        // 2.alert
+        }
     }
 
 export const savePhotoThunkCreator = (file) =>
@@ -144,6 +107,32 @@ export const savePhotoThunkCreator = (file) =>
     let response = await profileAPI.getPhoto(file)
         if (response.data.resultCode === 0) {
             dispatch(savePhotoSuccessful(response.data.data.photos))
+        }
+
+    }
+
+export const saveProfileThunkCreator = (profile) =>
+
+    async (dispatch, getState) => {
+
+    //в рамках одного редьюсера есть возможность обращатсья к другим редьюсерам
+    //и к глобальному стейту
+        try {
+            let userId = getState().auth.userId
+            let response = await profileAPI.saveProfile(profile)
+
+            if (response.data.resultCode === 0) {
+                dispatch(getUserProfileThunkCreator(userId))
+            } else {
+                dispatch(stopSubmit('edit-profile', {_error: response.data.messages[0]}))
+                // для выделения конкретного поля
+                //dispatch(stopSubmit('edit-profile', {"contacts": {"facebook": response.data.messages[0]}}))
+                return Promise.reject(response.data.messages[0])
+            }
+        }
+        catch (error) {
+            // 1.dispatch
+            // 2.alert
         }
 
     }

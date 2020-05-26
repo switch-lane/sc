@@ -8,13 +8,6 @@ import store from "./Components/Redux/redux-store";
 import './index.css';
 import {Provider} from "react-redux";
 
-///
-// setInterval(() => {
-//     store.dispatch({type: 'fake'})
-// }, 1000)
-///
-
-
 //по умолчанию
 // ReactDOM.render(
 //     <BrowserRouter>
@@ -32,18 +25,6 @@ ReactDOM.render(
     </HashRouter>, document.getElementById('root'));
 
 window.store = store;
-
-
-// store.subscribe(renderEntireTree);
-
-
-
-// store.subscribe(() => {
-//     let state = store.getState();
-//     renderEntireTree(state)
-// });
-// renderEntireTree(state.getState());
-
 
 
 // If you want your app to work offline and load faster, you can change

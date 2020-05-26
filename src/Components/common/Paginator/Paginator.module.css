@@ -9,13 +9,19 @@
 
 .paginator {
     margin: 10px;
+    display: inline-block;
 }
 .pageNumber {
-    padding: 2px;
+    background: darkgrey;
     border: 1px solid grey;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .pageNumber.selectedPage {
-    font-weight: bold;
+    background-color: #304875;
     border-color: black;
 }

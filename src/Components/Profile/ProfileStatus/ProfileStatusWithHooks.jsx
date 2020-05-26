@@ -30,8 +30,8 @@ const ProfileStatusWithHooks = (props) => {
 
                 {!editMode &&
                 <div>
-                    <span onDoubleClick={activateEditMode} className={classes.status} >
-                        {props.status || 'ERROR :('}
+                    <span onDoubleClick={props.isOwner ? activateEditMode : null} className={classes.status} >
+                        {props.status || 'no status'}
                     </span>
                 </div>}
 

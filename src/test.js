@@ -210,4 +210,3 @@
 // console.log(comDomain('google'))
 // console.log(ruDomain('yandex'))
 
-

@@ -14,3 +14,7 @@
     max-width: 160px;
 
 }
+
+.box input {
+    border-radius: 10px;
+}

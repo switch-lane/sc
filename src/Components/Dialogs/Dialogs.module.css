@@ -1,17 +1,16 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
-
-
 }
 .dialogsItems {
     padding: 10px;
-
-
 }
-.dialogsItems.active {
+.dialogsItems a {
+    text-decoration: none;
+    color: white;
+}
+.dialogsItems a:active {
     color: gold;
-
 }
 .dialogsItems img {
     width: 50px;
@@ -20,7 +19,35 @@
     padding: 10px;
 
 }
-
 .messages .message {
-
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 200px;
+    margin-bottom: 10px;
+    background-color: #D3D3D3;
+}
+.box textarea {
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+}
+.button {
+    border-radius: 8px;
+    background-color: #F2F2F2;
+    border: none;
+    color: black;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    width: 80px;
+    height: 50px;
+}
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
 }

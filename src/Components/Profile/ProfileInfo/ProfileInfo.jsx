@@ -1,14 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import classes from './ProfileInfo.module.css'
 import preloader from '../../../assets/images/6.gif'
-import Profile from "../Profile";
-import ProfileStatus from "../ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/user-icon.png"
+import ProfileDataForm from "./ProfileDataForm";
 
 
 const ProfileInfo = (props) => {
-    debugger
+
+    let [editMode, setEditMode] = useState(false)
 
     if(!props.profile) {
         return <img src={preloader}/>
@@ -16,33 +16,58 @@ const ProfileInfo = (props) => {
     }
     const onMainPhotoSelected = (event) => {
         if (event.target.files.length) {
-            props.savePhoto(event.target.files[0])
+            props.saveProfile(event.target.files[0])
         }
     }
 
+    const onSubmit = (formData) => {
+        props.saveProfile(formData)
+            .then(() => {
+                setEditMode(false)
+            })
+    }
 
     return (
         <div className={classes.item}>
-            {/*<img*/}
-            {/*    src="https://s.yimg.com/uu/api/res/1.2/DdytqdFTgtQuxVrHLDdmjQ--~B/aD03MTY7dz0xMDgwO3NtPTE7YXBwaWQ9eXRhY2h5b24-/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2019-11/7b5b5330-112b-11ea-a77f-7c019be7ecae"*/}
-            {/*    alt=""/>*/}
 
             <div className={classes.description}>
 
                 <img className={classes.mainPhoto} src={props.profile.photos.large || userPhoto}/>
 
                 <div>
-                {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+                    {props.isOwner &&
+                    <input type={"file"} onChange={onMainPhotoSelected}/>}
                 </div>
 
-                <ProfileStatusWithHooks status={props.status} updateUserStatusThunkCreator={props.updateUserStatusThunkCreator}/>
+                <b>Status:</b> <ProfileStatusWithHooks isOwner={props.isOwner} status={props.status} updateUserStatusThunkCreator={props.updateUserStatusThunkCreator}/>
 
-                <div>Description:</div>
-                <div>{'About Me: ' + props.profile.aboutMe}</div>
-                <div>{'Full name: ' + props.profile.fullName}</div>
+                {editMode ? <ProfileDataForm initialValues={props.profile} onSubmit={onSubmit} {...props}/> : <ProfileData {...props} goEditMode={()=> {setEditMode(true)}} isOwner={props.isOwner}/>}
+
 
             </div>
         </div>
     )
 }
+
+let Contact = ({contactKey, contactValue}) => {
+    return <div className={classes.contacts}><b>{contactKey}</b>: {contactValue}</div>
+
+}
+let ProfileData = (props) => {
+    return (<div>
+        {props.isOwner && <div><button className={classes.button} onClick={props.goEditMode}>edit</button></div>}
+
+
+        <h3>Profile info: </h3>
+        <div><b>About Me:</b> {props.profile.aboutMe}</div>
+        <div><b>Full name:</b> {props.profile.fullName}</div>
+        <div><b>Looking for a job: </b>{props.profile.lookingForAJob ? "yes" : "no"}</div>
+        <div><b>My professional skills: </b> {props.profile.lookingForAJobDescription}</div>
+        <div><h4>Contacts:</h4> {Object.keys(props.profile.contacts).map(key => {
+            return <Contact key={key} contactKey={key} contactValue={props.profile.contacts[key]}/>
+        })}</div>
+
+    </div>)
+}
+
 export default ProfileInfo
