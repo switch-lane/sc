@@ -6,14 +6,16 @@ const GET_CAPTCHA_SUCCESSFUL = 'auth/GET-CAPTCHA-SUCCESSFUL';
 
 
 let initialState = {
-    userId: null,
-    login: null,
-    email: null,
+    userId: null as number | null,
+    login: null as string | null,
+    email: null as string | null,
     isAuth: false,
-    captchaUrl: null
+    captchaUrl: null as string | null
 
 };
-let authReducer = (state = initialState, action) => {
+type initialStateType = typeof initialState
+
+let authReducer = (state = initialState, action: any): initialStateType => {
 
     switch (action.type) {
         case SET_USER_DATA:
@@ -32,20 +34,24 @@ let authReducer = (state = initialState, action) => {
 
     }
 }
-
-export const setAuthUserData = (userId, login, email, isAuth) => {
+type setAuthUserDataType = {
+    type: typeof SET_USER_DATA,
+    payload: {userId: number | null, login: string | null, email: string | null, isAuth: boolean}
+}
+export const setAuthUserData = (userId: number | null, login: string | null, email: string | null, isAuth: boolean): setAuthUserDataType => {
     return {type: SET_USER_DATA, payload: {userId, login, email, isAuth}}
 };
-export const getCaptchaSuccessful = (captchaUrl) => ({type: GET_CAPTCHA_SUCCESSFUL, payload: {captchaUrl}})
+type getCaptchaSuccessfulType = {
+    type: typeof GET_CAPTCHA_SUCCESSFUL,
+    payload: {captchaUrl: string}
+}
+export const getCaptchaSuccessful = (captchaUrl: string): getCaptchaSuccessfulType => ({type: GET_CAPTCHA_SUCCESSFUL, payload: {captchaUrl}})
 
 //THUNKS:
 
-export const getAuthUserDataThunkCreator = () => async (dispatch) => {
+export const getAuthUserDataThunkCreator = () => async (dispatch: any) => {
         //второй return возвращает вызов thunkcreator'а наоружу
         let response = await  authAPI.getAuthUserData()
-
-            //переделано на async await
-            // .then(response => {
 
                 if (response.data.resultCode === 0) {
                     let {id, login, email} = response.data.data;
@@ -53,13 +59,12 @@ export const getAuthUserDataThunkCreator = () => async (dispatch) => {
                 }
     }
 
-export const getLoginThunkCreator = (email, password, rememberMe, captcha) =>
+export const getLoginThunkCreator = (email: string, password: number, rememberMe: boolean, captcha: string) =>
 
-    async (dispatch) => {
-
+    async (dispatch: any) => {
 
         let response = await authAPI.getLogin(email, password, rememberMe, captcha)
-            // .then(response => {
+
                 if (response.data.resultCode === 0) {
                     dispatch(getAuthUserDataThunkCreator())
                 } else {
@@ -75,7 +80,7 @@ export const getLoginThunkCreator = (email, password, rememberMe, captcha) =>
 
 
 export const getLogoutThunkCreator = () =>
-    async (dispatch) => {
+    async (dispatch: any) => {
         let response = await authAPI.getLoginout()
             // .then(response => {
                 if (response.data.resultCode === 0) {
@@ -86,7 +91,7 @@ export const getLogoutThunkCreator = () =>
 
 export const getCaptchaUrlThunkCreator = () =>
 
-    async (dispatch) => {
+    async (dispatch: any) => {
 
     let response = await securityAPI.getCaptchaUrl()
         let captchaUrl = response.data.url

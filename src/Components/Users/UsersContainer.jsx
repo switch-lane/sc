@@ -49,7 +49,7 @@ class UsersAPIComponent extends React.Component {
             />
         </>
     }
-};
+}
 
 
 const mapStateToProps = (state) => {

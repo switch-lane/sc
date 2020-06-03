@@ -6,6 +6,7 @@ import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../common/FormControls/FormControls";
 import {maxLengthCreator, required} from "../../utilites/validators/validators";
+import {addMessage} from "../Redux/message-reducer";
 
 
 
@@ -17,8 +18,8 @@ const Dialogs = (props) => {
 
     //набранный текст хранится в стейте redux-form
     let addNewMessage = (formData) => {
-        props.AddMess(formData.newMessageText)
-        props.resetForm('addMessage')
+        props.addMessage(formData.newMessageText)
+        props.reset('addMessage')
     }
 
     // if (!props.isAuth) {return <Redirect to={'/login'}/>}

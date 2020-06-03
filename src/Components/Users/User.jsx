@@ -3,12 +3,6 @@ import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/user-icon.png";
 import React from "react";
 
-const cities = ['Moscow', 'Saint Petersburg', 'Novosibirsk', 'Ekatirinburg', 'Vladivostok', 'Archangelsk', 'Samara', 'Sochi', 'Vladimir', 'Irkutsk'];
-
-const random = (min, max) => {
-    return Math.floor(min + Math.random() * (max + 1 - min))
-}
-
 
 const User = (props) => {
 
@@ -43,13 +37,10 @@ const User = (props) => {
                     </div>
                     <span>
                         <span>
-                            <div>{props.user.name}</div>
-                            <div>{props.user.status}</div>
+                            <div><b>Username:</b> {props.user.name}</div>
+                            <div><b>Status:</b> {props.user.status}</div>
                         </span>
-                        <span>
-                            <div>{"Country: Russia"}</div>
-                            <div>{"City: " + cities[random(0, 9)]}</div>
-                        </span>
+
                     </span>
                 </span>
     </div>)

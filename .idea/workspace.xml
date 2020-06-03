@@ -1,59 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="882fbc46-9f6c-4441-bfd0-1a11c3a4a580" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/likev1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/page-not-found.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/ring.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Types/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogItem/DialogItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogItem/DialogItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Message/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Message/Message.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login/LoginContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login/LoginContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Music/Music.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Music/Music.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Nav/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Nav/Nav.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Nav/Nav.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/News/News.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/News/News.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/Post.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/Post.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/Post.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfieContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfieContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileStatus/ProfileStatusWithHooks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileStatus/ProfileStatusWithHooks.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/app-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/app-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/auth-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/redux-store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Redux/user-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/user-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Settings/Settings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Settings/Settings.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/app-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/app-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/message-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/message-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/profile-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Redux/user-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Redux/user-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Users/User.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/User.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/common/FormControls/FormControls.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/common/FormControls/FormControls.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/common/FormControls/FormControls.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/common/FormControls/FormControls.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/common/Paginator/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/common/Paginator/Paginator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/common/Paginator/Paginator.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/common/Paginator/Paginator.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/6.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/6.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilites/validators/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilites/validators/validators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +52,7 @@
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -83,16 +70,21 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../react-hooks-start/youtube-react-hooks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="ts.external.directory.path" value="C:\Users\Dmitry\Documents\kamaproject\sc\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -108,7 +100,7 @@
       <recent name="C:\Users\d.chernolaskin\Downloads\kamaproject\01-first-project\react-kam-1\src\Components\Profile" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.test.js">
+  <component name="RunManager" selected="npm.deploy">
     <configuration name="PostData should be incremented" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -135,9 +127,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="MyPosts.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" working-dir="$PROJECT_DIR$/src/Components/Profile/MyPosts">
-      <method v="2" />
-    </configuration>
     <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/test.js" working-dir="$PROJECT_DIR$/src">
       <method v="2" />
     </configuration>
@@ -148,16 +137,34 @@
         <script value="deploy" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="C:\Program Files (x86)\Yarn" />
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.length of post should be incremented" />
+      <item itemvalue="Jest.PostData should be incremented" />
+      <item itemvalue="Node.js.test.js" />
+      <item itemvalue="npm.deploy" />
+      <item itemvalue="npm.start" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="Node.js.test.js" />
         <item itemvalue="Jest.PostData should be incremented" />
         <item itemvalue="Jest.length of post should be incremented" />
-        <item itemvalue="Node.js.MyPosts.jsx" />
       </list>
     </recent_temporary>
   </component>
@@ -255,6 +262,10 @@
       <workItem from="1590404009902" duration="3023000" />
       <workItem from="1590479749031" duration="4916000" />
       <workItem from="1590491429994" duration="7238000" />
+      <workItem from="1591102122504" duration="1748000" />
+      <workItem from="1591166992448" duration="944000" />
+      <workItem from="1591175663511" duration="2396000" />
+      <workItem from="1591178102364" duration="10871000" />
     </task>
     <servers />
   </component>
@@ -281,37 +292,51 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="971" y="418" key="#Custom_Plugin_Repositories/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1589880824207" />
+    <state x="508" y="403" key="#ESLint" timestamp="1591177242071">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="508" y="403" key="#ESLint/0.0.1280.984@0.0.1280.984" timestamp="1591177242071" />
     <state x="598" y="311" key="#Notifications" timestamp="1589880777212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="311" key="#Notifications/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1589880777212" />
-    <state x="863" y="261" key="FileChooserDialogImpl" timestamp="1589880865796">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="80" y="294" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591102500287">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state x="80" y="294" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1591102500287" />
+    <state x="575" y="247" key="FileChooserDialogImpl" timestamp="1591102317062">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="575" y="247" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1591102317062" />
     <state x="863" y="261" key="FileChooserDialogImpl/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1589880865796" />
-    <state width="1899" height="182" key="GridCell.Tab.0.bottom" timestamp="1590400773096">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1259" height="157" key="GridCell.Tab.0.bottom" timestamp="1591176934015">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="157" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1591176934015" />
     <state width="1899" height="182" key="GridCell.Tab.0.bottom/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1590400773096" />
-    <state width="1899" height="182" key="GridCell.Tab.0.center" timestamp="1590400773096">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1259" height="157" key="GridCell.Tab.0.center" timestamp="1591176934015">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="157" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1591176934015" />
     <state width="1899" height="182" key="GridCell.Tab.0.center/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1590400773096" />
-    <state width="1899" height="182" key="GridCell.Tab.0.left" timestamp="1590400773096">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1259" height="157" key="GridCell.Tab.0.left" timestamp="1591176934015">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="157" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1591176934015" />
     <state width="1899" height="182" key="GridCell.Tab.0.left/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1590400773096" />
-    <state width="1899" height="182" key="GridCell.Tab.0.right" timestamp="1590400773096">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1259" height="157" key="GridCell.Tab.0.right" timestamp="1591176934015">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state width="1259" height="157" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1591176934015" />
     <state width="1899" height="182" key="GridCell.Tab.0.right/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1590400773096" />
     <state x="540" y="254" key="IDE.errors.dialog" timestamp="1589883427557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1589883427557" />
-    <state x="553" y="262" width="1261" height="711" key="SettingsEditor" timestamp="1589884323221">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="364" y="260" width="916" height="708" key="SettingsEditor" timestamp="1591167942618">
+      <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state x="364" y="260" width="916" height="708" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1591167942618" />
     <state x="553" y="262" width="1261" height="711" key="SettingsEditor/0.0.1920.1040/547.1080.1366.728@0.0.1920.1040" timestamp="1589884323221" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1589884340347">
       <screen x="0" y="0" width="1920" height="1040" />

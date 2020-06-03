@@ -10,9 +10,9 @@ const LoginForm = (props) => {
 
 //все наши данные упаковываются в obj formData
     //внутри handleSubmit вызывается onSubmit() и в него передается formData
-    return <div>
+    return <div className={classes.loginForm}>
 
-        <form className={classes.box} onSubmit={props.handleSubmit}>
+        <form className={classes.formInputs} onSubmit={props.handleSubmit}>
             <div>
                 <Field component={Input} name={'email'} placeholder={'email'} validate={[required]}/>
             </div>
@@ -32,7 +32,7 @@ const LoginForm = (props) => {
 
             </div>}
             <div>
-                <button >Sign in</button>
+                <button className={classes.submitButton}>Sign in</button>
             </div>
 
         </form>

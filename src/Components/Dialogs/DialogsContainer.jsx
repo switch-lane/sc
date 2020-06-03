@@ -1,5 +1,4 @@
-import React from "react";
-import { addMessageActionCreator } from "../Redux/message-reducer"
+import { addMessage } from "../Redux/message-reducer"
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../Hoc/withAuthRedirect";
@@ -13,20 +12,9 @@ const mapStateToProps = (state) => {
 
     }
 };
-const mapDispatchToProps = (dispatch) => {
-    return {
-        AddMess: (newMessageText) => {
-            dispatch(addMessageActionCreator(newMessageText))
-        },
-        resetForm: (form) => {
-            dispatch(reset(form))
-        }
-    }
-};
-
 
 let Composed = compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps, {addMessage, reset}),
     withAuthRedirect
 )(Dialogs);
 
