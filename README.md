@@ -1,4 +1,4 @@
 
 ## Social network
 
-Stack: React, Redux
+Stack: TypeScript, React, Redux
