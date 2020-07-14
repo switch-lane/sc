@@ -23,7 +23,7 @@ let initialState = {
 };
 
 
-const messageReducer = (state = initialState, action: any):initialStateType  => {
+const messageReducer = (state = initialState, action: actionsTypes):initialStateType  => {
 
     if (action.type === SEND_MESSAGE) {
         let newMessage = {
@@ -36,6 +36,7 @@ const messageReducer = (state = initialState, action: any):initialStateType  => 
     } else return state
 };
 
+type actionsTypes = addMessageType
 
 type addMessageType = {type: typeof SEND_MESSAGE, body: string}
 export const addMessage = (newMessageText: string): addMessageType => ({type: SEND_MESSAGE, body: newMessageText});

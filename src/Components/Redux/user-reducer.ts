@@ -1,5 +1,7 @@
 import {usersAPI} from "../../api/api";
 import { userType } from "../../Types/types";
+import {appStateType} from "./redux-store";
+import {ThunkAction} from "redux-thunk";
 
 const FOLLOW ='users/FOLLOW';
 const UNFOLLOW = 'users/UNFOLLW';
@@ -22,7 +24,7 @@ let initialState = {
 type initialStateType = typeof initialState
 
 
-let usersReducer = (state = initialState, action: any): initialStateType => {
+let usersReducer = (state = initialState, action: actionsTypes): initialStateType => {
 
     switch (action.type) {
         case FOLLOW: {
@@ -85,6 +87,8 @@ let usersReducer = (state = initialState, action: any): initialStateType => {
     }
 };
 
+type actionsTypes = followType | unfollowType | setUsersType | setCurrentPageType | setTotalUsersCountType | toggleIsFetchingType | toggleFollowingProgressType
+
 type followType = {
     type: typeof FOLLOW, userid: number
 }
@@ -116,10 +120,16 @@ export const setTotalUsersCount = (totalCount: number): setTotalUsersCountType =
 export const toggleIsFetching = (isFetching: boolean): toggleIsFetchingType => ({type: TOGGLE_IS_FETCHING, toggle: isFetching});
 export const toggleFollowingProgress = (statusProgress: boolean, userId: number): toggleFollowingProgressType => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, statusProgress, userId})
 
+
+
+
 //THUNKS:
-export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
+type thunksType = ThunkAction<Promise<void>, appStateType, unknown, actionsTypes>
+
+
+export const getUsersThunkCreator = (currentPage: number, pageSize: number):thunksType => {
     //currentPage, pageSize замыкаются в thunk
-    return async (dispatch: any) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true))
 
         let data = await usersAPI.getUsers(currentPage, pageSize)
@@ -132,9 +142,9 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
 }
 
 
-export const getUsersThunkCreatorPageChanged = (pageNumber: number, pageSize: number) =>
+export const getUsersThunkCreatorPageChanged = (pageNumber: number, pageSize: number): thunksType =>
     //currentPage, pageSize замыкаются в thunk
-    async (dispatch: any) => {
+    async (dispatch) => {
         dispatch(setCurrentPage(pageNumber))
         dispatch(toggleIsFetching(true))
 
@@ -146,9 +156,9 @@ export const getUsersThunkCreatorPageChanged = (pageNumber: number, pageSize: nu
     }
 
 
-export const unfollowThunk = (userId: number) =>
+export const unfollowThunk = (userId: number): thunksType =>
     //currentPage, pageSize замыкаются в thunk
-    async (dispatch: any) => {
+    async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId))
 
         let response = await usersAPI.getFollow(userId)
@@ -160,10 +170,10 @@ export const unfollowThunk = (userId: number) =>
     }
 
 
-export const followThunk = (userId: number) =>
-    async (dispatch: any) => {
+export const followThunk = (userId: number): thunksType =>
+    async (dispatch) => {
        dispatch( toggleFollowingProgress(true, userId))
-        let response= await usersAPI.getUnfollow(userId)
+        let response = await usersAPI.getUnfollow(userId)
 
                 if (response.data.resultCode === 0) {
                     dispatch(follow(userId))

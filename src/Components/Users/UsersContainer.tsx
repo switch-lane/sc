@@ -16,9 +16,35 @@ import {
     getUsersSelector, getUsersSelectorSuper
 } from "../Redux/user-selectors";
 import classes from './Users.module.css'
+import {userType} from "../../Types/types";
+import {appStateType} from "../Redux/redux-store";
+
+
+type mapDispatchPropsType = {
+    followThunk: (userId: number) => void
+    unfollowThunk: (userId: number) => void
+    getUsersThunkCreator: (currentPage: number, pageSize: number) => void
+    getUsersThunkCreatorPageChanged: (pageNumber: number, pageSize: number) => void
+}
+
+type mapStatePropsType = {
+    totalUsersCount: number
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    followingInProgress: Array<number>
+    users: Array<userType>
+}
+
+type OwnPropsType = {
+
+}
+
+type propsType = mapStatePropsType & mapDispatchPropsType & OwnPropsType
+
 
 // контейнерная компонента для AJAX запроса на сервер
-class UsersAPIComponent extends React.Component {
+class UsersAPIComponent extends React.Component<propsType> {
 
     //выполняется сразу после render() и сообщается, что можно делать запрос на сервер
     componentDidMount() {
@@ -27,15 +53,16 @@ class UsersAPIComponent extends React.Component {
     }
 
     // все методы яв-ся стрелочными ф-ми для сохранения контекста вызова
-    onPageChanged = (pageNumber) => {
+    onPageChanged = (pageNumber: number) => {
         //перенесен в thunk
         this.props.getUsersThunkCreatorPageChanged(pageNumber, this.props.pageSize)
     }
 
     render() {
+
         return <>
 
-            {this.props.isFetching ? <img className={classes.preloader} src={preloader}/> : null}
+            {this.props.isFetching ? <img className={classes.preloader} alt={''} src={preloader}/> : null}
 
             <Users currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
@@ -44,7 +71,6 @@ class UsersAPIComponent extends React.Component {
                    followThunk={this.props.followThunk}
                    totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
-                   toggleFollowingProgress={this.props.toggleFollowingProgress}
                    followingInProgress={this.props.followingInProgress}
             />
         </>
@@ -52,7 +78,7 @@ class UsersAPIComponent extends React.Component {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: appStateType): mapStatePropsType => {
 //selectors:
     return {
         users: getUsersSelectorSuper(state),
@@ -66,16 +92,13 @@ const mapStateToProps = (state) => {
 };
 
 let Composed = compose(
-    connect(mapStateToProps, {
+    connect<mapStatePropsType, mapDispatchPropsType, OwnPropsType, appStateType>(mapStateToProps, {
+
         followThunk,
         unfollowThunk,
-        setCurrentPage,
-        toggleFollowingProgress,
-        toggleIsFetching,
-        setUsers,
-        setTotalUsersCount,
         getUsersThunkCreator,
         getUsersThunkCreatorPageChanged
+
     }),
     //withAuthRedirect
 )(UsersAPIComponent);

@@ -1,5 +1,7 @@
 import {authAPI, securityAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
+import {appStateType} from "./redux-store";
+import {ThunkAction} from "redux-thunk";
 
 const SET_USER_DATA = 'auth/SET-USER-DATA';
 const GET_CAPTCHA_SUCCESSFUL = 'auth/GET-CAPTCHA-SUCCESSFUL';
@@ -15,7 +17,7 @@ let initialState = {
 };
 type initialStateType = typeof initialState
 
-let authReducer = (state = initialState, action: any): initialStateType => {
+let authReducer = (state = initialState, action: actionsTypes): initialStateType => {
 
     switch (action.type) {
         case SET_USER_DATA:
@@ -34,22 +36,31 @@ let authReducer = (state = initialState, action: any): initialStateType => {
 
     }
 }
+type actionsTypes = setAuthUserDataType | getCaptchaSuccessfulType
+
 type setAuthUserDataType = {
     type: typeof SET_USER_DATA,
     payload: {userId: number | null, login: string | null, email: string | null, isAuth: boolean}
 }
-export const setAuthUserData = (userId: number | null, login: string | null, email: string | null, isAuth: boolean): setAuthUserDataType => {
-    return {type: SET_USER_DATA, payload: {userId, login, email, isAuth}}
-};
 type getCaptchaSuccessfulType = {
     type: typeof GET_CAPTCHA_SUCCESSFUL,
     payload: {captchaUrl: string}
 }
+
+export const setAuthUserData = (userId: number | null, login: string | null, email: string | null, isAuth: boolean): setAuthUserDataType => {
+    return {type: SET_USER_DATA, payload: {userId, login, email, isAuth}}
+};
+
 export const getCaptchaSuccessful = (captchaUrl: string): getCaptchaSuccessfulType => ({type: GET_CAPTCHA_SUCCESSFUL, payload: {captchaUrl}})
 
-//THUNKS:
 
-export const getAuthUserDataThunkCreator = () => async (dispatch: any) => {
+
+
+//THUNKS:
+type thunksType = ThunkAction<Promise<void>, appStateType, unknown, actionsTypes>
+
+export const getAuthUserDataThunkCreator = (): thunksType =>
+    async (dispatch) => {
         //второй return возвращает вызов thunkcreator'а наоружу
         let response = await  authAPI.getAuthUserData()
 
@@ -59,7 +70,7 @@ export const getAuthUserDataThunkCreator = () => async (dispatch: any) => {
                 }
     }
 
-export const getLoginThunkCreator = (email: string, password: number, rememberMe: boolean, captcha: string) =>
+export const getLoginThunkCreator = (email: string, password: number, rememberMe: boolean, captcha: string): thunksType =>
 
     async (dispatch: any) => {
 
@@ -79,8 +90,8 @@ export const getLoginThunkCreator = (email: string, password: number, rememberMe
     }
 
 
-export const getLogoutThunkCreator = () =>
-    async (dispatch: any) => {
+export const getLogoutThunkCreator = (): thunksType =>
+    async (dispatch) => {
         let response = await authAPI.getLoginout()
             // .then(response => {
                 if (response.data.resultCode === 0) {
@@ -89,9 +100,9 @@ export const getLogoutThunkCreator = () =>
     }
 
 
-export const getCaptchaUrlThunkCreator = () =>
+export const getCaptchaUrlThunkCreator = (): thunksType =>
 
-    async (dispatch: any) => {
+    async (dispatch) => {
 
     let response = await securityAPI.getCaptchaUrl()
         let captchaUrl = response.data.url

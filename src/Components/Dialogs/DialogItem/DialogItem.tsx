@@ -3,8 +3,13 @@ import {NavLink} from "react-router-dom";
 import React from "react";
 import cn from 'classnames'
 
+type propsType = {
+    id: number
+    name: string
+}
 
-const DialogItem = (props) => {
+const DialogItem: React.FC<propsType> = (props) => {
+
     return (
         
         <div className={cn(classes.dialogsItems, classes.active)}>

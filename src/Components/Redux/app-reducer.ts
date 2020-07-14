@@ -1,4 +1,6 @@
 import {getAuthUserDataThunkCreator} from "./auth-reducer";
+import {ThunkAction} from "redux-thunk";
+import {appStateType} from "./redux-store";
 
 const INITIALIZED_SUCCESSFUL= 'app/INITIALIZED-SUCCESSFUL';
 
@@ -10,7 +12,7 @@ type initialStateType = {
     initialized: boolean
 }
 
-let appReducer = (state = initialState, action: any): initialStateType => {
+let appReducer = (state = initialState, action: actionsTypes): initialStateType => {
     switch (action.type) {
         case INITIALIZED_SUCCESSFUL:
             return {
@@ -22,11 +24,15 @@ let appReducer = (state = initialState, action: any): initialStateType => {
 
     }
 };
+type actionsTypes = initializedSuccessfulType
 type initializedSuccessfulType = {type: typeof INITIALIZED_SUCCESSFUL}
+
 export const initializedSuccessful = (): initializedSuccessfulType => ({type: INITIALIZED_SUCCESSFUL})
 
 
+
 //THUNKS:
+type thunksType = ThunkAction<Promise<void>, appStateType, unknown, actionsTypes>
 
 export const initializeAppThunkCreator = () => (dispatch: any) => {
         //dispatch может возвращать то, что возвращает ф-я,

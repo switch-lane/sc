@@ -2,9 +2,19 @@ import {NavLink} from "react-router-dom";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/user-icon.png";
 import React from "react";
+import {userType} from "../../Types/types";
 
+type propsType = {
+    user: userType
+    followThunk: (userId: number) => void
+    unfollowThunk: (userId: number) => void
+    followingInProgress: Array<number>
 
-const User = (props) => {
+}
+
+const User: React.FC<propsType> = (props) => {
+    debugger
+
 
     return (<div className={classes.userIcons} key={props.user.id}>
 

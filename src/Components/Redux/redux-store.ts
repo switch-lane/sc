@@ -9,7 +9,7 @@ import { reducer as formReducer } from 'redux-form'
 import appReducer from "./app-reducer";
 
 
-let benchOfReducers = combineReducers({
+let rootReducer = combineReducers({
     //методы этого объекта это свойства state
     ProfilePage: profileReducer,
     MessagesPage: messageReducer,
@@ -20,9 +20,14 @@ let benchOfReducers = combineReducers({
     app: appReducer
 });
 
+type rootReducerType = typeof rootReducer
+export type appStateType = ReturnType<rootReducerType>
+
+
 // 1.chrome extensions:
+// @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(benchOfReducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 //2.original:
 //const store = createStore(benchOfReducers, applyMiddleware(thunkMiddleware));
